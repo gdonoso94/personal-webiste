@@ -54,13 +54,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
-BLOG_TEMPLATES = os.path.join(BASE_DIR,'blog/templates/blog')
-RESUME_TEMPLATES = os.path.join(BASE_DIR,'resume_cv/templates/resume_cv')
+BLOG_TEMPLATES = os.path.join(BASE_DIR, 'blog/templates/blog')
+RESUME_TEMPLATES = os.path.join(BASE_DIR, 'resume_cv/templates/resume_cv')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BLOG_TEMPLATES,RESUME_TEMPLATES],
+        'DIRS': [BLOG_TEMPLATES, RESUME_TEMPLATES],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,9 +74,9 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
-    os.path.join(BASE_DIR,'blog/static/blog'),
-    os.path.join(BASE_DIR,'resume_cv/static/resume_cv')
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'blog/static/blog'),
+    os.path.join(BASE_DIR, 'resume_cv/static/resume_cv')
     ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
@@ -133,5 +133,3 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
