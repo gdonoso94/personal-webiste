@@ -6,6 +6,7 @@ class PostList(generic.ListView):
     model = Post
     ordering = ['-created_on']
     template_name = 'index.html'
+    paginate_by = 3
 
 class PostDetail(generic.DetailView):
     model = Post

@@ -38,10 +38,31 @@
             </div>
             <hr>
             {% endfor %}
-            <!-- Pager -->
-            <div class="clearfix">
-                <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+
+            {% if is_paginated %}
+            <nav aria-label="Page navigation conatiner"></nav>
+            <ul class="clearfix justify-content-right">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <!-- <a href="?page=1">&laquo; first</a> -->
+                        <a type="button" class="btn btn-outline-secondary btn-sm float-left" href="?page={{ page_obj.previous_page_number }}"> &laquo;Newer</a>
+                    {% endif %}
+            
+                    <!-- <span class="btn btn-primary btn-sm float-center">
+                        {{ page_obj.number }} - {{ page_obj.paginator.num_pages }}
+                    </span> -->
+            
+                    {% if page_obj.has_next %}
+                        <a type="button" class="btn btn-outline-secondary btn-sm float-right" href="?page={{ page_obj.next_page_number }}">Older &raquo;</a>
+                        <!-- <a class="btn btn-primary float-right" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> -->
+                    {% endif %}
+                </span>
+            </ul>
+            </nav>
             </div>
+            {% endif %}
+            <!-- Pager -->
+            
         </div>
     </div>
 </div>
