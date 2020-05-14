@@ -54,13 +54,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+BASE_TEMPLATES = os.path.join(BASE_DIR, 'templates') 
 BLOG_TEMPLATES = os.path.join(BASE_DIR, 'blog/templates/blog')
 RESUME_TEMPLATES = os.path.join(BASE_DIR, 'resume_cv/templates/resume_cv')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BLOG_TEMPLATES, RESUME_TEMPLATES],
+        'DIRS': [BASE_TEMPLATES, BLOG_TEMPLATES, RESUME_TEMPLATES],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

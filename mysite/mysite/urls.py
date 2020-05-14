@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from . import views
 
 urlpatterns = [
+    path('', views.LandingPage.as_view(), name = 'landing'),
     path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
-    path('', include('resume_cv.urls')),
-
+    path('blog/', include('blog.urls'), name = 'blog'),
+    path('cv/', include('resume_cv.urls')),
+    path('personal', views.PersonalBlog.as_view(), name = 'personal')
 ] 
 
 if settings.DEBUG:

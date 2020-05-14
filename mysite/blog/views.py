@@ -5,7 +5,7 @@ from .models import Post
 class PostList(generic.ListView):
     model = Post
     ordering = ['-created_on']
-    template_name = 'index.html'
+    template_name = 'homeblog.html'
     paginate_by = 3
 
     def get_queryset(self):
