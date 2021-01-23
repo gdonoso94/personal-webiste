@@ -1,0 +1,28 @@
+{% extends 'include/sidebar_base.html' %}
+
+{{ super() }}
+
+{% block content %}
+
+
+    <ul class="list-unstyled components">
+        <li class="active">
+            <a href="#meSubmenu" data-toggle="collapse" aria-expanded="false">Yo</a>
+            <ul class="collapse list-unstyled" id="meSubmenu">
+                <li>
+                    <a href="/about">Sobre mi</a>
+                </li>
+                <li>
+                    <a href="/cv">Curriculum Vitae</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/personal">Blog personal</a>
+        </li>
+        <li>
+            <a href="/professional">Blog profesional</a>
+        </li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} Sobre mi - Gonzalo Donoso {% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+
+{% block page_content %}
+{% include 'include/sidebar.html' %}
+
+
+<main role="main" class="container">
+        {{data.page|safe}}
+</main>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+
+{% endblock %}
