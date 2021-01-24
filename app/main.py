@@ -11,7 +11,7 @@ TEMPLATES_ROOT = os.path.join(PROJECT_ROOT, "templates")
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory=os.path.join(TEMPLATES_ROOT, "templates"))
+templates = Jinja2Templates(directory=os.path.join(TEMPLATES_ROOT))
 app.mount("/static", StaticFiles(directory=os.path.join(PROJECT_ROOT, "static")), name="static")
 # app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/resume", StaticFiles(directory=os.path.join(PROJECT_ROOT, "static/resume_cv")), name="resume")
@@ -19,15 +19,12 @@ app.mount("/resume", StaticFiles(directory=os.path.join(PROJECT_ROOT, "static/re
 app.mount("/home", StaticFiles(directory=os.path.join(PROJECT_ROOT, "static/home")), name="home")
 # app.mount("/home", StaticFiles(directory="static/home"), name="home")
 app.mount("/blog", StaticFiles(directory=os.path.join(PROJECT_ROOT, "static/blog")), name="blog")
-
-
 # app.mount("/blog", StaticFiles(directory="static/blog"), name="blog")
 
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    print(get_abs_path().parent)
-    return templates.TemplateResponse(os.path.join( TEMPLATES_ROOT, "home.html"), {"request": request})
+    return templates.TemplateResponse(get_template(templates, "home.html"), {"request": request})
 
 
 @app.get("/about", response_class=HTMLResponse)

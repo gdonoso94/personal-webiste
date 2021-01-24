@@ -2,6 +2,7 @@ import os.path
 from datetime import datetime
 from pathlib import Path
 import markdown
+from starlette.templating import Jinja2Templates
 
 
 def open_file(filename):
@@ -39,3 +40,7 @@ def get_abs_path():
     project_root_absolute = project_root.resolve()
 
     return project_root_absolute
+
+
+def get_template(templates: Jinja2Templates, template_name: str):
+    return templates.get_template(template_name)
