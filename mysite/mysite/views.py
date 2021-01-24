@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 
 
 class LandingPage(generic.View):
-    template_name = 'index.html'
+    template_name = 'home.html'
 
     def get(self, request):
         return render(request, self.template_name)

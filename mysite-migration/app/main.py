@@ -25,16 +25,16 @@ async def about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request, "data": data})
 
 
-@app.get("/cv")
-async def cv(request: Request, response_class=HTMLResponse):
+@app.get("/cv", response_class=HTMLResponse)
+async def cv(request: Request):
     return templates.TemplateResponse("/cv/me.html", {"request": request})
 
 
-@app.get("/personal")
+@app.get("/personal", response_class=HTMLResponse)
 async def personal(request: Request):
     return RedirectResponse("https://unamotoyunbambu.wordpress.com/")
 
-@app.get("/professional")
+@app.get("/professional", response_class=HTMLResponse)
 async def professional(request: Request):
     data = {
         "posts": [i[:-3] for i in get_blog_posts()]
@@ -42,7 +42,7 @@ async def professional(request: Request):
     #TODO: render content
     return templates.TemplateResponse("blog.html", {"request": request, "data": data})
 
-@app.get("/blog/{blog_post}")
+@app.get("/blog/{blog_post}", response_class=HTMLResponse)
 async def render_post(request: Request, blog_post: str):
     data = open_file(f"blog/{blog_post}.md")
     return templates.TemplateResponse("render_blog.html", {"request": request, "data": data})
