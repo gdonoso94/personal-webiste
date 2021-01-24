@@ -1,25 +1,21 @@
 {% extends "base.html" %}
+{% include '/include/about_header.html' %}
 
-{% block title %} Sobre mi - Gonzalo Donoso {% endblock %}
-{% block head %}
-{{ super() }}
+{% block content %}
 
-{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {{data.page|safe}}
+            </div>
+            <!-- Pager -->
 
+        </div>
+    </div>
+</div>
 
-{% block page_content %}
-{% include 'include/sidebar.html' %}
+<hr>
 
-
-<main role="main" class="container">
-        {{data.page|safe}}
-</main>
-
-
-{% endblock %}
-
-{% block scripts %}
-{{ super() }}
 
 
 {% endblock %}

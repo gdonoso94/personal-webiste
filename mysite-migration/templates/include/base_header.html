@@ -1,0 +1,11 @@
+<header class="h-25 masthead" style="background-image: {{ url_for('blog', path='img/home-bg.jpg') }})">
+    <div class="h-100 overlay"></div>
+    <div class="h-100 container">
+        <div class="h-100 row">
+            <div class="h-100 col-lg-10 col-md-10 mx-auto">
+                {% block header_title %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</header>

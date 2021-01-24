@@ -1,7 +1,6 @@
-# Information
+### Information
 
-Testing
+Pangolin inside
 
-## Two hash render 
 
-This should be below "Two hash render" title
+[Mi CV](/cv)
