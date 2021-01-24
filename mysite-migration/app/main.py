@@ -10,14 +10,13 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/resume", StaticFiles(directory="static/resume_cv"), name="resume")
+app.mount("/home", StaticFiles(directory="static/home"), name="home")
 
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    data = {
-        "page": "Home page"
-    }
-    return templates.TemplateResponse("page.html", {"request": request, "data": data})
+    return templates.TemplateResponse("home.html", {"request": request})
+
 
 @app.get("/about", response_class=HTMLResponse)
 async def about(request: Request):
@@ -31,16 +30,18 @@ async def cv(request: Request):
 
 
 @app.get("/personal", response_class=HTMLResponse)
-async def personal(request: Request):
+async def personal():
     return RedirectResponse("https://unamotoyunbambu.wordpress.com/")
+
 
 @app.get("/professional", response_class=HTMLResponse)
 async def professional(request: Request):
     data = {
         "posts": [i[:-3] for i in get_blog_posts()]
     }
-    #TODO: render content
+    # TODO: render content
     return templates.TemplateResponse("blog.html", {"request": request, "data": data})
+
 
 @app.get("/blog/{blog_post}", response_class=HTMLResponse)
 async def render_post(request: Request, blog_post: str):
