@@ -41,7 +41,7 @@ async def professional(request: Request):
         "posts": [i[:-3] for i in get_blog_posts()]
     }
     # TODO: render content
-    return templates.TemplateResponse("blog.html", {"request": request, "data": data})
+    return templates.TemplateResponse("home_blog.html", {"request": request, "data": data})
 
 
 @app.get("/blog/{blog_post}", response_class=HTMLResponse)
