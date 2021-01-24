@@ -61,7 +61,3 @@ async def render_post(request: Request, blog_post: str):
         "page": markdown_to_html(os.path.join(PAGES_ROOT, f"blog/{blog_post}.md"))
     }
     return templates.TemplateResponse(get_template(templates, "render_blog.html"), {"request": request, "data": data})
-
-
-if __name__ == "__main__":
-    uvicorn.run("app", host="0.0.0.0", port=8000, workers=2)
