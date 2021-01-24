@@ -1,25 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %} Sobre mi - Gonzalo Donoso {% endblock %}
-{% block head %}
-{{ super() }}
-
-{% endblock %}
+{% block content %}
+{% include 'include/base_header.html' %}
+{% include 'include/post_navbar.html' %}
 
 
-{% block page_content %}
-{% include 'include/sidebar.html' %}
+<!--- TODO: FIX POST HEADER -->
 
+<main role="main" class="container mt-1">
 
-<main role="main" class="container">
-        {{data.page|safe}}
+    {{data.page|safe}}
 </main>
 
-
 {% endblock %}
 
-{% block scripts %}
-{{ super() }}
 
 
-{% endblock %}

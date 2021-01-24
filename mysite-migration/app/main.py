@@ -21,7 +21,9 @@ async def home(request: Request):
 
 @app.get("/about", response_class=HTMLResponse)
 async def about(request: Request):
-    data = open_file("about_me.md")
+    data = {
+        "data": markdown_to_html("about_me.md")
+    }
     return templates.TemplateResponse("about.html", {"request": request, "data": data})
 
 
@@ -37,14 +39,12 @@ async def personal():
 
 @app.get("/professional", response_class=HTMLResponse)
 async def professional(request: Request):
-    data = {
-        "posts": [i[:-3] for i in get_blog_posts()]
-    }
-    # TODO: render content
-    return templates.TemplateResponse("home_blog.html", {"request": request, "data": data})
+    return templates.TemplateResponse("home_blog.html", {"request": request, "data": get_blog_posts()})
 
 
-@app.get("/blog/{blog_post}", response_class=HTMLResponse)
+@app.get("/blog_post/{blog_post}", response_class=HTMLResponse)
 async def render_post(request: Request, blog_post: str):
-    data = open_file(f"blog/{blog_post}.md")
+    data = {
+        "page":  markdown_to_html(f"blog/{blog_post}.md")
+    }
     return templates.TemplateResponse("render_blog.html", {"request": request, "data": data})
