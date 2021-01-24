@@ -11,6 +11,7 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/resume", StaticFiles(directory="static/resume_cv"), name="resume")
 app.mount("/home", StaticFiles(directory="static/home"), name="home")
+app.mount("/blog", StaticFiles(directory="static/blog"), name="blog")
 
 
 @app.get("/", response_class=HTMLResponse)
