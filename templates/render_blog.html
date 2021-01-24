@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include 'include/base_header.html' %}
+{% include 'include/post_navbar.html' %}
+
+
+<!--- TODO: FIX POST HEADER -->
+
+<main role="main" class="container mt-1">
+
+    {{data.page|safe}}
+</main>
+
+{% endblock %}
+
+
+

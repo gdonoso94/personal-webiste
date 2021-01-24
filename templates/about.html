@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% include '/include/about_header.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {{data.data|safe}}
+        </div>
+        <!-- Pager -->
+
+    </div>
+</div>
+</div>
+
+<hr>
+
+
+{% endblock %}
